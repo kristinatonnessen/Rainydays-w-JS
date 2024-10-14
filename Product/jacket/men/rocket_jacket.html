@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Jacket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icons/mountain_96x96.png">
+</head>
+
+<body>
+    <header>
+        <nav class="header">
+            <div class="phone-menu-section">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+                <div class="burger-menu">
+                    <ul class="nav-links"> 
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="shop_men.html">MENS APPAREL</a></li>
+                        <li><a href="shop_women.html">WOMENS APPAREL</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="login.html">LOGIN</a></li>
+                        <li><a href="sign_up.html">SIGN UP</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="header-container">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="#">SHOP</a>
+                        <div class="dropdown-menu">
+                            <a href="shop_men.html">MENS APPAREL</a>
+                            <a href="shop_women.html">WOMENS APPAREL</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                </ul>
+            </div>
+            <ul class="icons">
+                <li><a href="cart.html" class="icon"><img src="icons/cart_96x96_02.png" alt="Shopping Cart Icon"></a></li>
+            </ul> 
+        </nav>
+    </header>
+
+    <main>
+        <section class="cards">
+            <div class="card-1">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="mens_jackets/Rocket_jacket_05.jpg" alt="Product Image 1" id="main-image">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="mens_jackets/Rocket_jacket_05.jpg" alt="Rocket Jacket" class="thumbnail">
+                        <img src="mens_jackets/Rocket_Jacket_06.jpg" alt="Rocket Jacket" class="thumbnail">
+                        <img src="mens_jackets/Rocket_Jacket_07.jpg" alt="Rocket Jacket" class="thumbnail">
+                        <img src="mens_jackets/Rocket_Jacket_08.jpg" alt="Rocket Jacket" class="thumbnail">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-2">
+                <h1 class="h1">Rocket Jacket</h1>
+                <p class="p">Rainydays</p>
+                <h2 class="h2">1990 kr.</h2>
+                <p class="p">Made out of water and wind resistant fabric and zippers 
+                    to keep you dry in every situation
+
+                With a light and moveable fabric that isolates in every condition, 
+                from the streets, to high mountains, this is the jacket you want 
+                for your adventures.</p>
+                <div class="size-selection">
+                    <h3 class="h2">Pick a Size</h3>
+                    <div class="size-options">
+                        <input type="radio" id="size-s" name="size" value="S">
+                        <label for="size-s">S</label>
+                
+                        <input type="radio" id="size-m" name="size" value="M">
+                        <label for="size-m">M</label>
+                
+                        <input type="radio" id="size-l" name="size" value="L">
+                        <label for="size-l">L</label>
+
+                        <input type="radio" id="size-xl" name="size" value="XL">
+                        <label for="size-xl">XL</label>
+                    </div>
+                </div>
+                <div class="quantity-selection">
+                    <h3 class="h2">Quantity</h3>
+                    <div class="quantity-controls">
+                        <input type="number" class="quantity-input" value="1" min="1" max="3">
+                    </div>
+                </div>
+                <a href="cart.html">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </a>     
+            </div>
+
+            <div class="card-3">
+                <h2 class="h2">Product details</h2>
+                <p class="p">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quia natus officia qui? Fugit tempore aliquam cupiditate enim unde accusamus nostrum odit. Quidem ex temporibus iusto iure recusandae ut quas?
+                </p>
+            </div>
+
+            <div class="card-4" >
+                <div class="product-card">
+                    <img src="mens_jackets/Boarding_Jacket_02.jpg" alt="Boarding Jacket">
+                    <h3 class="product-name">Boarding Jacket</h3>
+                    <p class="brand-name">RAINYDAYS</p>
+                    <p class="price">1990 kr.</p>
+                </div>
+            
+                <div class="product-card">
+                    <img src="mens_jackets/Drop_Jacket_02.jpg" alt="Drop Jacket">
+                    <h3 class="product-name">Drop Jacket</h3>
+                    <p class="brand-name">RAINYDAYS</p>
+                    <p class="price">1990 kr.</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="mens_jackets/Pump_Jacket_02.jpg" alt="Pump Jacket">
+                    <h3 class="product-name">Pump Jacket</h3>
+                    <p class="brand-name">RAINYDAYS</p>
+                    <p class="price">1990 kr.</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="mens_jackets/Sway_Jacket_02.jpg" alt="Sway Jacket">
+                    <h3 class="product-name">Sway Jacket</h3>
+                    <p class="brand-name">RAINYDAYS</p>
+                    <p class="price">1990 kr.</p>
+                </div>
+            </div>
+
+            <section class="card-5 reviews-section"> 
+                <h2>Customer Reviews</h2>
+                <div class="review">
+                    <div class="reviewer-info">
+                        <h3 class="h2">John Doe</h3><div class="rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                        </div>
+                    </div>
+                    <p class="p review-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="review">
+                    <div class="reviewer-info">
+                        <h3 class="h2">Jane Doe</h3><div class="rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+                    </div>
+                    <p class="p review-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <h4 class="h2">CONTACT</h4>
+            <address>
+                <p><a href="mailto:info@rainydays.com">info@rainydays.com</a></p>
+                <p>(123) 456-7890</p>
+                <p><a href="/location">View in Map</a></p>
+                <p><a href="/chat">Start Live Chat</a></p>
+            </address>
+        </div>
+
+        <div class="footer-section">
+            <h4 class="h2">ABOUT</h4>
+            <ul>
+                <li><a href="/environment"><p>Environment</p></a></li>
+                <li><a href="/founder"><p>Founder</p></a></li>
+                <li><a href="/goals"><p>Goals</p></a></li>
+            </ul>
+        </div>  
+
+        <div class="footer-section">
+            <h4 class="h2">RAINYDAYS</h4>
+            <ul>
+                <li><a href="/community"><p>Community</p></a></li>
+                <li><a href="/newsletter"><p>Newsletter</p></a></li>
+                <li><a href="/jobs"><p>Jobs</p></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4 class="h2">SOCIAL MEDIA</h4>
+            <ul>
+                <li><a href="/community"><p>Instagram</p></a></li>
+                <li><a href="/newsletter"><p>Facebook</p></a></li>
+                <li><a href="/jobs"><p>Twitter</p></a></li>
+                <li><a href="/jobs"><p>TikTok</p></a></li>
+            </ul>
+        </div>
+        <div class="logo2-section">
+            <img src="images/RainyDays_Logo.png" alt="RainyDays Logo">
+        </div>  
+    </footer>
+
+</body>
+</html>
