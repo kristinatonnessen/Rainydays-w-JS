@@ -183,7 +183,7 @@ a.icon {
 
                 /* AD CONTAINERS */
 .ad-container {
-    background: url('images/ad_man_on_mountain_02.jpg') 
+    background: url('ad_man_on_mountain_02.jpg') 
         center/cover no-repeat; 
     text-align: left;
     color: #0A3641; 
@@ -274,13 +274,13 @@ nav a {
 
   }
   .activity {
-    background-image: url(images/Shop_By_Activity.jpeg);
+    background-image: url(Shop_By_Activity.jpeg);
   }
   .category {
-    background-image: url(images/Shop_By_Category.jpeg);
+    background-image: url(Shop_By_Category.jpeg);
   }
   .season {
-    background-image: url(images/Shop_By_Season.jpeg);
+    background-image: url(Shop_By_Season.jpeg);
   }
 
                 /* PRODUCT CONTAINER */
@@ -358,7 +358,7 @@ button:hover {
 
                 /* BRAND INFO */
 .brand-section {
-    background: url('images/about_text_mountain.jpg') 
+    background: url('about_text_mountain.jpg') 
     center/cover no-repeat; 
     text-align: center;
     align-items: center;
