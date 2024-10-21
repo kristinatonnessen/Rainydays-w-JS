@@ -309,7 +309,6 @@ nav a {
     background-color: #0a364125;
     border: none;
     border-radius: 3px;
-    
 }
 .product-name {
     color: #0A3641;
@@ -763,6 +762,17 @@ label {
 .checkout-button:hover {
     background-color: #0a36414c;
 }
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+}
+
 
                     /* MEDIA */
 
