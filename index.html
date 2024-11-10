@@ -7,197 +7,50 @@
         <title>RainyDays</title>
         <link rel="stylesheet" href="styles.css">
         <script defer src="script.js" defer></script>
-        <link rel="icon" href="icons/mountain_96x96.png">
     </head>
 
 <body>
     <header>
         <nav class="header">
-            <div class="phone-menu-section">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="menu-icon">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </label>
-                <div class="burger-menu">
-                    <ul class="nav-links"> 
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="shop_men.html">MENS APPAREL</a></li>
-                        <li><a href="shop_women.html">WOMENS APPAREL</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                        <li><a href="login.html">LOGIN</a></li>
-                        <li><a href="sign_up.html">SIGN UP</a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="header-container">
                 <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li class="dropdown">
                         <a href="#">SHOP</a>
                         <div class="dropdown-menu">
-                            <a href="shop_men.html">MENS APPAREL</a>
-                            <a href="shop_women.html">WOMENS APPAREL</a>
+                            <a href="#">MENS APPAREL</a>
+                            <a href="#">WOMENS APPAREL</a>
                         </div>
                     </li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
                 </ul>
             </div>
-            <ul class="icons">
+            <ul class="icons" id="cart-icon">
                 <li><a href="checkout/index.html" class="icon"><img src="icons/cart_96x96_02.png" alt="Shopping Cart Icon"></a></li>
             </ul> 
         </nav>
     </header>
     
     <main>
-        <div class="ad-container"> 
-            <h1>GET 10% OFF</h1>
-            <h2>YOUR FIRST PURCHASE</h2>
-            <a href="sign_up.html">
-                <button class="ad-button">SIGN UP</button>
-            </a>
-        </div>   
-        
-        <div class="center-container">
-            <div class="logo">
-                <img src="images/Rainydays_Logo_Cut.png" alt="Logo for header" class="logo-image" />
-            </div>
+        <h1 class="center-container">CART</h1>
+        <div class="cart-container">
+            <!-- Cart items will be inserted dynamically here -->
         </div>
-        <section>
-            <div class="item-container">
-                <div class="item activity">
-                    shop by activity
-                </div>
-                <div class="item category">
-                    shop by category
-                </div>
-                <div class="item season">
-                    shop by season
-                </div>
-            </div>
-        </section>
-        
-        <section class="product-section">
-            <h2 class="center-container">MENS APPAREL</h2>
-            <div class="product-container">
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/mens_jackets/Rocket_jacket_05.jpg" alt="Rocket Jacket">
-                    <h3 class="product-name">Rocket Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="rocket_jacket" data-name="Rocket Jacket" data-price="1990">Add to Cart</button>
-                </a>
-        
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/mens_jackets/Boarding_Jacket_02.jpg" alt="Boarding Jacket">
-                    <h3 class="product-name">Boarding Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="boarding_jacket" data-name="Boarding Jacket" data-price="1990">Add to Cart</button>
-                </a>
-            
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/mens_jackets/Drop_Jacket_02.jpg" alt="Drop Jacket">
-                    <h3 class="product-name">Drop Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="drop_jacket" data-name="Drop Jacket" data-price="1990">Add to Cart</button>
-                </a>
-
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/mens_jackets/Pump_Jacket_02.jpg" alt="Pump Jacket">
-                    <h3 class="product-name">Pump Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="pump_jacket" data-name="Pump Jacket" data-price="1990">Add to Cart</button>
-                </a>
-
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/mens_jackets/Sway_Jacket_02.jpg" alt="Sway Jacket">
-                    <h3 class="product-name">Sway Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="sway_jacket" data-name="Sway Jacket" data-price="1990">Add to Cart</button>
-                </a>
-            </div>
-        </section>
-
-        <section class="product-section">
-            <h2 class="center-container">WOMENS APPAREL</h2>
-            <div class="product-container">
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/womens_jackets/Bomb_Jacket_02.jpg" alt="Bomb Jacket">
-                    <h3 class="product-name">Bomb Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="rocket_jacket" data-name="Rocket Jacket" data-price="1990">Add to Cart</button>
-                </a>
-                
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/womens_jackets/Braid_Jacket_02.jpg" alt="Braid Jacket">
-                    <h3 class="product-name">Braid Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="rocket_jacket" data-name="Rocket Jacket" data-price="1990">Add to Cart</button>
-                </a>
-    
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/womens_jackets/Frost_Jacket_02.jpg" alt="Frost Jacket">
-                    <h3 class="product-name">Frost Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="rocket_jacket" data-name="Rocket Jacket" data-price="1990">Add to Cart</button>
-                </a>
-
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/womens_jackets/Haze_Jacket_02.jpg" alt="Haze Jacket">
-                    <h3 class="product-name">Haze Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="rocket_jacket" data-name="Rocket Jacket" data-price="1990">Add to Cart</button>
-                </a>
-
-                <a href="rocket_jacket.html" class="product-card">
-                    <img src="images/womens_jackets/Nordic_Jacket_05.png" alt="Nordic Jacket">
-                    <h3 class="product-name">Nordic Jacket</h3>
-                    <p class="brand-name">RAINYDAYS</p>
-                    <p class="price">1990 kr.</p>
-                    <button class="add-to-cart-btn" data-id="rocket_jacket" data-name="Rocket Jacket" data-price="1990">Add to Cart</button>
-                </a>
-            </div>
-        </section>
-
-        <div class="brand-section">
-                <p>Welcome to RainyDays, where we turn gloomy skies into 
-                    opportunities for fashion expression. Our passion is crafting 
-                    outerwear that defies damp forecasts and celebrates rainy days</p> 
-                <p>With a keen eye for style and an unwavering commitment to keeping 
-                    you dry, we blend form and function seamlessly. From classic to 
-                    contemporary, our collection caters to diverse tastes, ensuring 
-                    you step out into the rain with confidence. Join us in embracing 
-                    the beauty of precipitation, as we redefine rainy days as 
-                    occasions for showcasing your unique style. Rain or shine, you'll 
-                    find your perfect companion in RainyDays</p>
-        </div>
-
-        <section class="coming-soon-section">
+        <div class="total">
+            <h3>Total:</h3>
+            <h2 class="total-price">0 kr</h2> <!-- Dynamically updated total -->
             <div>
-                <h2>COMING SOON</h2>
+                <a href="confirmation/index.html">
+                    <button style="margin-bottom: 0px;" class="checkout-button">Checkout</button>
+                </a>
             </div>
-                <div class="images">
-                    <img src="images/coming_soon_09.png" alt="Dog in Backpack">
-                    <img src="images/coming_soon_10.png" alt="Cat in Backpack">
-                    <img src="images/coming_soon_11.png" alt="Dog Wearing Backpack">
-                    <img src="images/coming_soon_12.png" alt="Hiking Backpack">
-                </div>
-            <a href="sign_up.html">
-                <button>sign up for updates</button>
-            </a>
-        </section>
+            <div>
+                <a href="index.html">
+                    <button class="checkout-button">Continue shopping</button>
+                </a>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -206,8 +59,6 @@
             <address>
                 <p><a href="mailto:info@rainydays.com">info@rainydays.com</a></p>
                 <p>(123) 456-7890</p>
-                <p><a href="/location">View in Map</a></p>
-                <p><a href="/chat">Start Live Chat</a></p>
             </address>
         </div>
 
@@ -216,14 +67,12 @@
             <ul>
                 <li><a href="/environment"><p>Environment</p></a></li>
                 <li><a href="/founder"><p>Founder</p></a></li>
-                <li><a href="/goals"><p>Goals</p></a></li>
             </ul>
         </div>  
 
         <div class="footer-section">
             <h4 class="h2">RAINYDAYS</h4>
             <ul>
-                <li><a href="/community"><p>Community</p></a></li>
                 <li><a href="/newsletter"><p>Newsletter</p></a></li>
                 <li><a href="/jobs"><p>Jobs</p></a></li>
             </ul>
@@ -234,13 +83,8 @@
             <ul>
                 <li><a href="/community"><p>Instagram</p></a></li>
                 <li><a href="/newsletter"><p>Facebook</p></a></li>
-                <li><a href="/jobs"><p>Twitter</p></a></li>
-                <li><a href="/jobs"><p>TikTok</p></a></li>
             </ul>
         </div>
-        <section class="logo2-section">
-            <img src="images/RainyDays_Logo.png" alt="RainyDays Logo">
-        </section>  
     </footer>
 
 </body>

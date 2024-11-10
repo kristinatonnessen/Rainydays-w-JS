@@ -1,82 +1,66 @@
-// script.js
-
+// Function to fetch products from the API
 async function fetchProducts() {
-    try {
-        showLoadingIndicator(); // Show a loading indicator while fetching data
-        const response = await fetch('https://static.cloud.noroff.dev/api/rainy-days');
-        const products = await response.json();
-        displayProducts(products);
-    } catch (error) {
-        alert('Failed to fetch products. Please try again later.');
-    } finally {
-        hideLoadingIndicator(); // Hide the loading indicator
-    }
+  try {
+      const response = await fetch('https://api.noroff.dev/api/v1/rainy-days'); // Replace with the correct endpoint
+      const products = await response.json(); // Parse the JSON data from the response
+      displayProducts(products); // Call a function to display products on the page
+  } catch (error) {
+      console.error('Error fetching products:', error);
+      alert('There was an issue fetching the products. Please try again later.');
+  }
 }
 
+// Function to display products dynamically
 function displayProducts(products) {
-    const productContainer = document.getElementById('product-container');
-    productContainer.innerHTML = ''; // Clear any existing content
+  const productList = document.getElementById('product-list'); // Get the product container
 
-    products.forEach(product => {
-        const productCard = `
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.title}">
-                <h3 class="product-name">${product.title}</h3>
-                <p class="brand-name">RAINYDAYS</p>
-                <p class="price">${product.onSale ? product.discountedPrice : product.price} kr.</p>
-                <button onclick="addToCart('${product.id}')">Add to Cart</button>
-            </div>
-        `;
-        productContainer.innerHTML += productCard;
-    });
+products.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card'); // Add the product card class
+
+// Create the link to the specific product page
+const productLink = document.createElement('a');
+productLink.href = `product/index.html?id=${product.id}`; // Link to the specific product page
+
+// Check if there is a discounted price
+let priceHTML = `<p class="price">${product.price} kr</p>`; // Default price
+if (product.discountedPrice) {
+    priceHTML = `<p class="price discounted">
+                    <span class="original-price">${product.price} kr</span> 
+                    ${product.discountedPrice} kr
+                  </p>`;
+ }
+productCard.innerHTML = `
+    <img src="${product.image}" alt="${product.title}">
+    <h3 class="product-name">${product.title}</h3>
+    <p class="price">${product.onSale ? `<span class="discounted-price">${product.discountedPrice}</span> <span class="original-price">${product.price}</span>` : `${product.price}`}</p>
+    <button class="add-to-cart-btn" data-id="${product.id}" data-name="${product.title}" data-price="${product.discountedPrice || product.price}">Add to Cart</button>
+`;
+
+productList.appendChild(productCard); // Append each product card to the container
+});
 }
 
-// Call the fetch function on page load
-window.onload = fetchProducts;
 
-// Placeholder functions for loading indicator
-function showLoadingIndicator() {
-    // Implement loading indicator display
-}
+let cart = []; // Initialize an empty array to hold the cart items
 
-function hideLoadingIndicator() {
-    // Implement loading indicator hide
-}
-
+// Function to add product to cart
 function addToCart(productId) {
-    // Logic to add the product to the cart
-    console.log(`Product added to cart: ${productId}`); // Remove this in final submission
+    const product = products.find(p => p.id === productId); // Find the product by ID
+    if (product) {
+        cart.push(product); // Add the product to the cart array
+        alert(`${product.title} has been added to your cart!`);
+        updateCartCount(); // Update the cart icon with the number of items
+    }
 }
 
-// Sample function to fetch products
-async function fetchProducts() {
-    try {
-      showLoadingIndicator(); // Show loading indicator
-      const response = await fetch('https://static.cloud.noroff.dev/api/rainy-days');
-      const products = await response.json();
-      displayProducts(products); // Function to display products
-    } catch (error) {
-      alert('Failed to fetch products. Please try again later.');
-    } finally {
-      hideLoadingIndicator(); // Hide loading indicator
-    }
-  }
-  async function fetchProduct(productId) {
-    try {
-      const response = await fetch(`https://static.cloud.noroff.dev/api/rainy-days/${productId}`);
-      const product = await response.json();
-      displayProductDetails(product); // Function to display product details
-    } catch (error) {
-      alert('Failed to fetch product details. Please try again later.');
-    }
-  }
-  function displayCart() {
-    const cartItems = getCartItems(); // Function to get items from local storage or state
-    // Render cart items
-  }
-  
-  function removeFromCart(productId) {
-    // Logic to remove item from cart
-    displayCart(); // Refresh the cart display
-  }
-  
+function updateCartCount() {
+  const cartCount = cart.length;
+  const cartIcon = document.getElementById('cart-icon'); // Make sure you have an element with this ID
+  cartIcon.textContent = cartCount; // Update the cart icon with the number of items
+}
+
+// Run the fetchProducts function when the page is loaded
+window.onload = function() {
+  fetchProducts();
+};
