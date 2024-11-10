@@ -13,11 +13,7 @@ header {
     z-index: 1000;
     height: 60px;
 }
-header nav {
-    margin: 0;
-    top: -9999px;
-    left: -9999px;
-}
+
 .header-container {
     display: flex;
     justify-content: center;
