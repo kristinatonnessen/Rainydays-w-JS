@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let cart = JSON.parse(localStorage.getItem('cart')) || []; // Load from localStorage if available
     console.log(cart); // Check the contents of the cart
 
+    // Function to add a product to the cart
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get existing cart from localStorage or initialize as empty
+        cart.push(product); // Add the selected product to the cart
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart back into localStorage
+        console.log('Product added to cart:', product); // Debugging: check the product in the console
+    }
+
     // Function to display cart items
     function displayCart() {
         const cartContainer = document.querySelector('.cart-container');
@@ -48,6 +56,48 @@ document.addEventListener('DOMContentLoaded', function() {
         totalElement.textContent = total.toFixed(2) + ' kr';
     }
 
+    // Function to handle removing a product from the cart
+    function removeFromCart(productId) {
+        cart = cart.filter(item => item.id !== productId); // Remove the item with the given ID
+        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        displayCart(); // Re-render the cart after removal
+    }
+
+    // Attach event listeners to remove buttons
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('remove-button')) {
+            const productId = e.target.dataset.id;
+            removeFromCart(productId);
+        }
+    });
+
     // Run the displayCart function when the page loads
     displayCart();
+
+    // Event listener for the "Add to Cart" button
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('add-to-cart-btn')) {
+            // Capture product data from the button's data-* attributes
+            const productId = e.target.dataset.id;
+            const productName = e.target.dataset.name;
+            const productPrice = e.target.dataset.price;
+            const productImage = e.target.dataset.image;
+            const productDiscountedPrice = e.target.dataset.discountedPrice || null;
+
+            // Create a product object with the data from the button's data-* attributes
+            const product = {
+                id: productId,
+                name: productName,
+                price: parseFloat(productPrice),
+                image: productImage,
+                discountedPrice: productDiscountedPrice ? parseFloat(productDiscountedPrice) : null
+            };
+
+            // Add the product to the cart
+            addToCart(product);
+
+            // Optionally show a message or update UI here
+            alert(`${productName} has been added to your cart!`);
+        }
+    });
 });

@@ -6,86 +6,80 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RainyDays</title>
         <link rel="stylesheet" href="styles.css">
-        <script defer src="/checkout/script.js"></script>
+        <script defer src="script.js"></script>
     </head>
 
 <body>
-    <header>
-        <nav class="header">
-            <div class="header-container">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li class="dropdown">
-                        <a href="#">SHOP</a>
-                        <div class="dropdown-menu">
-                            <a href="#">MENS APPAREL</a>
-                            <a href="#">WOMENS APPAREL</a>
-                        </div>
-                    </li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                </ul>
-            </div>
-            <ul class="icons" id="cart-icon">
-                <li><a href="checkout/index.html" class="icon"><img src="cart_96x96_02.png" alt="Shopping Cart Icon"></a></li>
-            </ul> 
-        </nav>
-    </header>
-
-    <main>
-        <h1 class="center-container">SHOPPINGCART</h1>
-        <div class="cart-container">
-            <!-- Cart items will be inserted dynamically here -->
-        </div>
-        <div class="total">
-            <h3>TOTAL:</h3>
-            <h2 class="total-price">0 kr</h2> <!-- Dynamically updated total -->
-            <div>
-                <a href="confirmation/index.html">
-                    <button class="checkout-button">CHECKOUT</button>
-                </a>
-            </div>
-            <div>
-                <a href="index.html">
-                    <button class="checkout-button">CONTINUE SHOPPING</button>
-                </a>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-section">
-            <h4 class="h2">CONTACT</h4>
-            <address>
-                <p><a href="mailto:info@rainydays.com">info@rainydays.com</a></p>
-                <p>(123) 456-7890</p>
-            </address>
-        </div>
-
-        <div class="footer-section">
-            <h4 class="h2">ABOUT</h4>
+<header>
+    <nav class="header">
+        <div class="header-container">
             <ul>
-                <li><a href="/environment"><p>Environment</p></a></li>
-                <li><a href="/founder"><p>Founder</p></a></li>
-            </ul>
-        </div>  
-
-        <div class="footer-section">
-            <h4 class="h2">RAINYDAYS</h4>
-            <ul>
-                <li><a href="/newsletter"><p>Newsletter</p></a></li>
-                <li><a href="/jobs"><p>Jobs</p></a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
             </ul>
         </div>
+        <ul class="icons" id="cart-icon">
+            <li><a href="checkout.html" class="icon"><img src="cart_96x96_02.png" alt="Shopping Cart Icon"></a></li>
+        </ul> 
+    </nav>
+</header>
 
-        <div class="footer-section">
-            <h4 class="h2">SOCIAL MEDIA</h4>
-            <ul>
-                <li><a href="/community"><p>Instagram</p></a></li>
-                <li><a href="/newsletter"><p>Facebook</p></a></li>
-            </ul>
+<main>
+    <h1 class="center-container">SHOPPING CART</h1>
+    <div class="cart-container">
+        <!-- Cart items will be inserted dynamically here -->
+    </div>
+    <div class="total">
+        <h3>TOTAL:</h3>
+        <h2 class="total-price">0 kr</h2> <!-- Dynamically updated total -->
+        <div>
+            <a href="confirmation.html">
+                <button class="checkout-button">CHECKOUT</button>
+            </a>
         </div>
-    </footer>
+        <div>
+            <a href="index.html">
+                <button class="checkout-button">CONTINUE SHOPPING</button>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-section">
+        <h4 class="h2">CONTACT</h4>
+        <address>
+            <p><a href="mailto:info@rainydays.com">info@rainydays.com</a></p>
+            <p>(123) 456-7890</p>
+        </address>
+    </div>
+
+    <div class="footer-section">
+        <h4 class="h2">ABOUT</h4>
+        <ul>
+            <li><a href="/environment"><p>Environment</p></a></li>
+            <li><a href="/founder"><p>Founder</p></a></li>
+        </ul>
+    </div>  
+
+    <div class="footer-section">
+        <h4 class="h2">RAINYDAYS</h4>
+        <ul>
+            <li><a href="/newsletter"><p>Newsletter</p></a></li>
+            <li><a href="/jobs"><p>Jobs</p></a></li>
+        </ul>
+    </div>
+
+    <div class="footer-section">
+        <h4 class="h2">SOCIAL MEDIA</h4>
+        <ul>
+            <li><a href="/community"><p>Instagram</p></a></li>
+            <li><a href="/newsletter"><p>Facebook</p></a></li>
+        </ul>
+    </div>
+</footer>
 
 </body>
 </html>

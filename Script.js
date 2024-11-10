@@ -34,7 +34,7 @@ productCard.innerHTML = `
     <img src="${product.image}" alt="${product.title}">
     <h3 class="product-name">${product.title}</h3>
     <p class="price">${product.onSale ? `<span class="discounted-price">${product.discountedPrice}</span> <span class="original-price">${product.price}</span>` : `${product.price}`}</p>
-    <button class="add-to-cart-btn" data-id="${product.id}" data-name="${product.title}" data-price="${product.discountedPrice || product.price}">Add to Cart</button>
+    <button class="add-to-cart-btn" data-id="${product.id}" data-name="${product.title}" data-price="${product.discountedPrice || product.price}">ADD TO CART</button>
 `;
 
 productList.appendChild(productCard); // Append each product card to the container
