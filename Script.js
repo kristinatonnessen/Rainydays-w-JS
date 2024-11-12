@@ -49,10 +49,29 @@ function displayProducts(products) {
 
 // Event listener for the "Add to Cart" button
 document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('add-to-cart-btn')) {
-        const productId = e.target.dataset.id; // Get product ID from the button's data-id attribute
-        addToCart(productId); // Add the product to the cart
-    }
+  if (e.target.classList.contains('add-to-cart-btn')) {
+      // Capture product data from the button's data-* attributes
+      const productId = e.target.dataset.id;
+      const productName = e.target.dataset.name;  // Capture the name correctly
+      const productPrice = e.target.dataset.price;
+      const productImage = e.target.dataset.image;
+      const productDiscountedPrice = e.target.dataset.discountedPrice || null;
+
+      // Create a product object with the data from the button's data-* attributes
+      const product = {
+          id: productId,
+          name: productName,  // Ensure 'name' is assigned
+          price: parseFloat(productPrice),
+          image: productImage,
+          discountedPrice: productDiscountedPrice ? parseFloat(productDiscountedPrice) : null
+      };
+
+      // Add the product to the cart
+      addToCart(product);
+
+      // Optionally show a message or update UI here
+      alert(`${productName} has been added to your cart!`);
+  }
 });
 
 // Function to add product to cart

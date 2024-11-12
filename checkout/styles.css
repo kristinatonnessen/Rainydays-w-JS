@@ -84,30 +84,38 @@ a.icon {
 }
 
 .product {
-    display: flex;
-    align-items: center;
+    display: flex; /* Arrange the content in a row */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: space-between; /* Push the button to the bottom */
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 3px;
     width: 250px;
     margin-bottom: 20px;
+    height: 100%; /* Ensure it stretches to full height */
 }
 
+/* The image part of the product */
 .product img {
-    max-width: 100px;
-    margin-right: 20px;
-    border-radius: 2px;
+    width: 100%;
+    max-height: 230px; /* Ensure the image has a fixed height */
+    object-fit: cover; /* Make sure the image covers the area */
+    margin-bottom: 15px;
 }
 
+/* Product details, including name and price */
 .product-details {
-    flex: 1;
+    flex-grow: 1; /* Allow the details to take the remaining space */
+    display: flex;
+    flex-direction: column; /* Stack name and price vertically */
+    justify-content: space-between;
+    text-align: center;
 }
-
 .remove-button {
     background-color: #0a36414c;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 15px 10px;
     border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
@@ -119,7 +127,24 @@ a.icon {
 
 .total {
     text-align: center;
+    font-size: larger;
     margin: 60px;
+}
+/* Style for original price with strikethrough, only if discounted price exists */
+.original-price {
+    text-decoration: line-through; /* Strikethrough for the original price */
+    color: #999; /* Lighter color for original price */
+    margin-right: 10px; /* Space between original and discounted price */
+}
+
+/* Regular price styling */
+.price {
+    font-size: 16px;
+    font-weight: lighter;
+}
+.price.discounted {
+    font-weight: lighter;
+    color: #ff4d4d; /* Optional: Change color for discounted price */
 }
 
 .checkout-button {
