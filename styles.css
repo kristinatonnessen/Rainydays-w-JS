@@ -151,10 +151,13 @@ nav a {
 }
 
 .filter-section select {
-    padding: 10px;
+    padding: 3px;
+    padding-left: 30px;
+    padding-right: 10px;
     font-size: 16px;
     border-radius: 4px;
     border: 1px solid #ccc;
+
 }
 
                 /* PRODUCT CONTAINER */

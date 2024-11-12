@@ -37,9 +37,9 @@ function displayProducts(products) {
             <img src="${product.image}" alt="${product.title}">
             <h3 class="product-name">${product.title}</h3>
             <p class="price">${product.discountedPrice ? 
-                `<span class="original-price">${product.price} kr</span> 
-                 ${product.discountedPrice} kr` : `${product.price} kr`}</p>
-            <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+                `<span class="original-price">${product.price} €</span> 
+                 ${product.discountedPrice} €` : `${product.price} €`}</p>
+            <button class="add-to-cart-btn" data-id="${product.id}">ADD TO CART</button>
         `;
         
         // Append each product card to the product container
