@@ -29,7 +29,6 @@ function displayCart() {
         productElement.innerHTML = `
             <img src="${item.image}" alt="${item.name}">
             <div class="product-details">
-                <h2>${item.name}</h2>
                 <p class="price">
                     ${item.discountedPrice ? 
                         `<span class="original-price">${item.price} €</span> ${item.discountedPrice} €` : 

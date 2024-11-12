@@ -6,103 +6,98 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RainyDays</title>
         <link rel="stylesheet" href="styles.css">
-        <script defer src="script.js"></script>
+        <script defer src="script.js" defer></script>
     </head>
 
 <body>
-    <header>
-        <nav class="header">
-            <div class="header-container">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="#">SHOP</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                </ul>
-            </div>
-            <ul class="icons" id="cart-icon">
-                <li><a href="checkout/index.html" class="icon"><img src="icons/cart_96x96_02.png" alt="Shopping Cart Icon"></a></li>
-            </ul> 
-        </nav>
-    </header>
- 
-    <main>
-        <div class="center-container">
-            <div class="logo">
-                <img src="images/Rainydays_Logo_Cut.png" alt="Logo for header" class="logo-image" />
-            </div>
+<header>
+    <nav class="header">
+        <div class="header-container">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
         </div>
-        
-        <!-- Filter Section -->
-        <h2 class="center-container" style="margin-top: 80px;">OUR APPAREL</h2>
+        <ul class="icons" id="cart-icon">
+            <li><a href="checkout/index.html" class="icon"><img src="icons/cart_96x96_02.png" alt="Shopping Cart Icon"></a></li>
+        </ul> 
+    </nav>
+</header>
 
-        <section class="filter-section">
-            <label for="category-filter">Category:</label>
-            <select id="category-filter">
-                <option value="">All</option>
-                <option value="jacket">Jacket</option>
-                <option value="outerwear">Shoes</option>
-                <option value="pants">Pants</option>
-            </select>
-
-            <label for="gender-filter">Gender:</label>
-            <select id="gender-filter">
-                <option value="">All</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-
-            <label for="genre-filter">Genre:</label>
-            <select id="genre-filter">
-                <option value="">All</option>
-                <option value="outdoor">Warm</option>
-                <option value="casual">Cold</option>
-            </select>
-        </section>
-
-<!-- Product Section -->
-<section class="product-section">
-    <div id="product-list" class="product-container">
-        <!-- Products will be inserted here dynamically -->
+<main>
+    <div class="center-container">
+        <div class="logo">
+            <img src="images/Rainydays_Logo_Cut.png" alt="Logo for header" class="logo-image" />
+        </div>
     </div>
-</section>
+    
+    <h2 class="center-container" style="margin-top: 80px;">OUR APPAREL</h2>
 
-        
-    </main>
+    <section class="filter-section">
+        <label for="category-filter">Category:</label>
+        <select id="category-filter">
+            <option value="">All</option>
+            <option value="jacket">Jacket</option>
+            <option value="outerwear">Shoes</option>
+            <option value="pants">Pants</option>
+        </select>
 
-    <footer>
-        <div class="footer-section">
-            <h4 class="h2">CONTACT</h4>
-            <address>
-                <p><a href="mailto:info@rainydays.com">info@rainydays.com</a></p>
-                <p>(123) 456-7890</p>
-            </address>
-        </div>
+        <label for="gender-filter">Gender:</label>
+        <select id="gender-filter">
+            <option value="">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
 
-        <div class="footer-section">
-            <h4 class="h2">ABOUT</h4>
-            <ul>
-                <li><a href="/environment"><p>Environment</p></a></li>
-                <li><a href="/founder"><p>Founder</p></a></li>
-            </ul>
-        </div>  
+        <label for="genre-filter">Genre:</label>
+        <select id="genre-filter">
+            <option value="">All</option>
+            <option value="outdoor">Warm</option>
+            <option value="casual">Cold</option>
+        </select>
+    </section>
 
-        <div class="footer-section">
-            <h4 class="h2">RAINYDAYS</h4>
-            <ul>
-                <li><a href="/newsletter"><p>Newsletter</p></a></li>
-                <li><a href="/jobs"><p>Jobs</p></a></li>
-            </ul>
-        </div>
+    <section class="product-section">
+        <div id="product-list" class="product-container"></div>
+    </section>
 
-        <div class="footer-section">
-            <h4 class="h2">SOCIAL MEDIA</h4>
-            <ul>
-                <li><a href="/community"><p>Instagram</p></a></li>
-                <li><a href="/newsletter"><p>Facebook</p></a></li>
-            </ul>
-        </div>
-    </footer>
+</main>
+
+<footer>
+    <div class="footer-section">
+        <h4 class="h2">CONTACT</h4>
+        <address>
+            <p><a href="mailto:info@rainydays.com">info@rainydays.com</a></p>
+            <p>(123) 456-7890</p>
+        </address>
+    </div>
+
+    <div class="footer-section">
+        <h4 class="h2">ABOUT</h4>
+        <ul>
+            <li><a href="/environment"><p>Environment</p></a></li>
+            <li><a href="/founder"><p>Founder</p></a></li>
+        </ul>
+    </div>  
+
+    <div class="footer-section">
+        <h4 class="h2">RAINYDAYS</h4>
+        <ul>
+            <li><a href="/newsletter"><p>Newsletter</p></a></li>
+            <li><a href="/jobs"><p>Jobs</p></a></li>
+        </ul>
+    </div>
+
+    <div class="footer-section">
+        <h4 class="h2">SOCIAL MEDIA</h4>
+        <ul>
+            <li><a href="/community"><p>Instagram</p></a></li>
+            <li><a href="/newsletter"><p>Facebook</p></a></li>
+        </ul>
+    </div>
+</footer>
 
 </body>
 </html>
