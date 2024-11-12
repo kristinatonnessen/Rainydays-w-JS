@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RainyDays</title>
         <link rel="stylesheet" href="styles.css">
-        <script defer src="script.js"></script>
+        <script defer src="script.js" deffer></script>
     </head>
 
 <body>
@@ -33,12 +33,40 @@
             </div>
         </div>
         
-        <section class="product-section">
-            <h2 class="center-container" style="margin-top: 80px;">OUR APPAREL</h2>
-            <div id="product-list" class="product-container">
+        <!-- Filter Section -->
+        <h2 class="center-container" style="margin-top: 80px;">OUR APPAREL</h2>
 
-            </div>
+        <section class="filter-section">
+            <label for="category-filter">Category:</label>
+            <select id="category-filter">
+                <option value="">All</option>
+                <option value="jacket">Jacket</option>
+                <option value="outerwear">Shoes</option>
+                <option value="pants">Pants</option>
+            </select>
+
+            <label for="gender-filter">Gender:</label>
+            <select id="gender-filter">
+                <option value="">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="genre-filter">Genre:</label>
+            <select id="genre-filter">
+                <option value="">All</option>
+                <option value="outdoor">Warm</option>
+                <option value="casual">Cold</option>
+            </select>
         </section>
+
+<!-- Product Section -->
+<section class="product-section">
+    <div id="product-list" class="product-container">
+        <!-- Products will be inserted here dynamically -->
+    </div>
+</section>
+
         
     </main>
 

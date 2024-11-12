@@ -23,7 +23,7 @@ async function fetchProducts() {
 
 // Function to display the products on the homepage
 function displayProducts(products) {
-    const productContainer = document.querySelector('.product-container');
+    const productContainer = document.querySelector('#product-list');
     
     // Clear the container first (in case of re-render)
     productContainer.innerHTML = '';
@@ -47,36 +47,41 @@ function displayProducts(products) {
     });
 }
 
+// Function to filter products based on selected criteria
+function filterProducts() {
+    const category = document.querySelector('#category-filter').value;
+    const gender = document.querySelector('#gender-filter').value;
+    const genre = document.querySelector('#genre-filter').value;
+
+    // Filter products based on selected values
+    const filteredProducts = products.filter(product => {
+        // Check each filter condition and return true if the product matches
+        const categoryMatch = category ? product.tags.includes(category) : true;
+        const genderMatch = gender ? product.gender === gender : true;
+        const genreMatch = genre ? product.tags.includes(genre) : true;
+
+        return categoryMatch && genderMatch && genreMatch;
+    });
+
+    // Display the filtered products
+    displayProducts(filteredProducts);
+}
+
+// Event listeners for the filters
+document.querySelector('#category-filter').addEventListener('change', filterProducts);
+document.querySelector('#gender-filter').addEventListener('change', filterProducts);
+document.querySelector('#genre-filter').addEventListener('change', filterProducts);
+
 // Event listener for the "Add to Cart" button
 document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('add-to-cart-btn')) {
-      // Capture product data from the button's data-* attributes
-      const productId = e.target.dataset.id;
-      const productName = e.target.dataset.name;  // Capture the name correctly
-      const productPrice = e.target.dataset.price;
-      const productImage = e.target.dataset.image;
-      const productDiscountedPrice = e.target.dataset.discountedPrice || null;
-
-      // Create a product object with the data from the button's data-* attributes
-      const product = {
-          id: productId,
-          name: productName,  // Ensure 'name' is assigned
-          price: parseFloat(productPrice),
-          image: productImage,
-          discountedPrice: productDiscountedPrice ? parseFloat(productDiscountedPrice) : null
-      };
-
-      // Add the product to the cart
-      addToCart(product);
-
-      // Optionally show a message or update UI here
-      alert(`${productName} has been added to your cart!`);
-  }
+    if (e.target.classList.contains('add-to-cart-btn')) {
+        const productId = e.target.dataset.id; // Get product ID from the button's data-id attribute
+        addToCart(productId); // Add the product to the cart
+    }
 });
 
 // Function to add product to cart
 function addToCart(productId) {
-    // Ensure products are loaded before attempting to access it
     if (!products || products.length === 0) {
         console.error("Products not loaded yet.");
         return;

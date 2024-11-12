@@ -86,7 +86,7 @@ a.icon {
                 /* LOGO TOP */ 
 .logo {
     max-width: 500px; 
-    margin: 20px; 
+    margin: 10px; 
     gap: 10px;
     padding: 0px;
     display: flex; 
@@ -98,7 +98,7 @@ a.icon {
     max-width: 100%;
     flex-shrink: 0; 
     gap: 10px;
-    margin: 20px;
+    margin: 10px;
 }
 
 h1 {
@@ -141,6 +141,20 @@ nav a {
     background-color: rgba(0, 123, 255, 0);
     color: #0A3641;
     text-decoration: none;
+}
+/* Filter Section */
+.filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 200px; margin-right: 200px;
+    text-align: center;
+}
+
+.filter-section select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
                 /* PRODUCT CONTAINER */
