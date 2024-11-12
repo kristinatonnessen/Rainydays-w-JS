@@ -1,99 +1,88 @@
-// Function to fetch products from the API
+let products = [];  // Declare the products array globally
+
+// Function to fetch products from the v1 API
 async function fetchProducts() {
-  try {
-      const response = await fetch('https://api.noroff.dev/api/v1/rainy-days'); // Replace with the correct endpoint
-      const products = await response.json(); // Parse the JSON data from the response
-      displayProducts(products); // Call a function to display products on the page
-  } catch (error) {
-      console.error('Error fetching products:', error);
-      alert('There was an issue fetching the products. Please try again later.');
-  }
-}
+    try {
+        // Fetch data from the v1 API
+        const response = await fetch('https://api.noroff.dev/api/v1/rainy-days');
+        
+        // Check if the response is okay
+        if (!response.ok) {
+            throw new Error('Failed to fetch products');
+        }
+        
+        // Parse the response data
+        products = await response.json(); // Store the products in the global variable
 
-// Function to display products dynamically
-function displayProducts(products) {
-  const productList = document.getElementById('product-list'); // Get the product container
-
-products.forEach(product => {
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card'); // Add the product card class
-
-// Create the link to the specific product page
-const productLink = document.createElement('a');
-productLink.href = `product/index.html?id=${product.id}`; // Link to the specific product page
-
-// Check if there is a discounted price
-let priceHTML = `<p class="price">${product.price} kr</p>`; // Default price
-if (product.discountedPrice) {
-    priceHTML = `<p class="price discounted">
-                    <span class="original-price">${product.price} kr</span> 
-                    ${product.discountedPrice} kr
-                  </p>`;
- }
-productCard.innerHTML = `
-    <img src="${product.image}" alt="${product.title}">
-    <h3 class="product-name">${product.title}</h3>
-    <p class="price">${product.onSale ? `<span class="discounted-price">${product.discountedPrice}</span> <span class="original-price">${product.price}</span>` : `${product.price}`}</p>
-    <button class="add-to-cart-btn" data-id="${product.id}" data-name="${product.title}" data-price="${product.discountedPrice || product.price}">ADD TO CART</button>
-`;
-
-productList.appendChild(productCard); // Append each product card to the container
-});
-}
-
-
-let cart = []; // Initialize an empty array to hold the cart items
-// Sample function to add a product to the cart
-
-// Function to add product to the cart
-function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get existing cart from localStorage or initialize as empty
-  cart.push(product); // Add the selected product to the cart
-  localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart back to localStorage
-}
-
-// Function to handle "Add to Cart" button click
-document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('add-to-cart-btn')) {
-      const productId = e.target.dataset.id;
-      const productName = e.target.dataset.name;
-      const productPrice = e.target.dataset.price;
-      const productImage = e.target.dataset.image; // Assuming each product has an image attribute
-      const productDiscountedPrice = e.target.dataset.discountedPrice || null;
-
-      // Create product object
-      const product = {
-          id: productId,
-          name: productName,
-          price: parseFloat(productPrice),
-          image: productImage,
-          discountedPrice: parseFloat(productDiscountedPrice), // Optional if discounted price is available
-      };
-
-      // Add the product to the cart
-      addToCart(product);
-      alert(`${productName} has been added to your cart!`);
-  }
-});
-
-
-// Function to add product to cart
-function addToCart(productId) {
-    const product = products.find(p => p.id === productId); // Find the product by ID
-    if (product) {
-        cart.push(product); // Add the product to the cart array
-        alert(`${product.title} has been added to your cart!`);
-        updateCartCount(); // Update the cart icon with the number of items
+        // Display the products on the homepage
+        displayProducts(products);
+    } catch (error) {
+        console.error('Error fetching products:', error);
     }
 }
 
-function updateCartCount() {
-  const cartCount = cart.length;
-  const cartIcon = document.getElementById('cart-icon'); // Make sure you have an element with this ID
-  cartIcon.textContent = cartCount; // Update the cart icon with the number of items
+// Function to display the products on the homepage
+function displayProducts(products) {
+    const productContainer = document.querySelector('.product-container');
+    
+    // Clear the container first (in case of re-render)
+    productContainer.innerHTML = '';
+
+    // Loop through the products and generate HTML for each
+    products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.title}">
+            <h3 class="product-name">${product.title}</h3>
+            <p class="price">${product.discountedPrice ? 
+                `<span class="original-price">${product.price} kr</span> 
+                 ${product.discountedPrice} kr` : `${product.price} kr`}</p>
+            <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+        `;
+        
+        // Append each product card to the product container
+        productContainer.appendChild(productCard);
+    });
 }
 
-// Run the fetchProducts function when the page is loaded
-window.onload = function() {
-  fetchProducts();
-};
+// Event listener for the "Add to Cart" button
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('add-to-cart-btn')) {
+        const productId = e.target.dataset.id; // Get product ID from the button's data-id attribute
+        addToCart(productId); // Add the product to the cart
+    }
+});
+
+// Function to add product to cart
+function addToCart(productId) {
+    // Ensure products are loaded before attempting to access it
+    if (!products || products.length === 0) {
+        console.error("Products not loaded yet.");
+        return;
+    }
+
+    // Find the product by ID from the global 'products' array
+    const product = products.find(p => p.id === productId);
+
+    if (product) {
+        // Get the existing cart from localStorage, or initialize as an empty array if not available
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Add the product to the cart
+        cart.push(product);
+
+        // Save the updated cart back into localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`${product.title} has been added to your cart!`);
+    } else {
+        console.error('Product not found');
+    }
+}
+
+// Call the fetchProducts function when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+    fetchProducts(); // Fetch products from the v1 API
+});
