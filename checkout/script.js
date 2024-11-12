@@ -18,7 +18,6 @@ function displayCart() {
     // Clear the container first (in case of re-render)
     cartContainer.innerHTML = '';
 
-    // Display each item in the cart
     let total = 0;
 
     cart.forEach(item => {
@@ -33,9 +32,8 @@ function displayCart() {
                 <h2>${item.name}</h2>
                 <p class="price">
                     ${item.discountedPrice ? 
-                        `<span class="original-price">${item.price} €</span> 
-                         ${item.discountedPrice} €` : 
-                         `${item.price} €`}
+                        `<span class="original-price">${item.price} €</span> ${item.discountedPrice} €` : 
+                        `${item.price} €`}
                 </p>
             </div>
             <button class="remove-button" data-id="${item.id}">REMOVE</button>
@@ -51,7 +49,6 @@ function displayCart() {
     // Update the total price
     totalElement.textContent = total.toFixed(2) + ' €';
 }
-
 
 
     function removeFromCart(productId) {

@@ -130,21 +130,18 @@ a.icon {
     font-size: larger;
     margin: 60px;
 }
-/* Style for original price with strikethrough, only if discounted price exists */
 .original-price {
-    text-decoration: line-through; /* Strikethrough for the original price */
-    color: #999; /* Lighter color for original price */
-    margin-right: 10px; /* Space between original and discounted price */
+    text-decoration: line-through;
+    color: #999; 
+    margin-right: 10px; 
 }
-
-/* Regular price styling */
 .price {
     font-size: 16px;
     font-weight: lighter;
 }
 .price.discounted {
     font-weight: lighter;
-    color: #ff4d4d; /* Optional: Change color for discounted price */
+    color: #ff4d4d; 
 }
 
 .checkout-button {
