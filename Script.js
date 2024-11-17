@@ -21,30 +21,36 @@ async function fetchProducts() {
     }
 }
 
-// Function to display the products on the homepage
+// Function to display products on the homepage
 function displayProducts(products) {
-    const productContainer = document.querySelector('#product-list');
-    
-    // Clear the container first (in case of re-render)
-    productContainer.innerHTML = '';
+  const productContainer = document.querySelector('#product-list');
+  
+  // Clear the container first (in case of re-render)
+  productContainer.innerHTML = '';
 
-    // Loop through the products and generate HTML for each
-    products.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
-        
-        productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}">
-            <h3 class="product-name">${product.title}</h3>
-            <p class="price">${product.discountedPrice ? 
-                `<span class="original-price">${product.price} €</span> 
-                 ${product.discountedPrice} €` : `${product.price} €`}</p>
-            <button class="add-to-cart-btn" data-id="${product.id}">ADD TO CART</button>
-        `;
-        
-        // Append each product card to the product container
-        productContainer.appendChild(productCard);
-    });
+  // Loop through the products and generate HTML for each
+  products.forEach(product => {
+      const productCard = document.createElement('div');
+      productCard.classList.add('product-card');
+      
+      // Create a link around the product card
+      const productLink = document.createElement('a');
+      productLink.href = `product/index.html?id=${product.id}`; // Link to the product page with the product ID as a query parameter
+
+      productLink.innerHTML = `
+          <img src="${product.image}" alt="${product.title}">
+          <h3 class="product-name">${product.title}</h3>
+          <p class="price">${product.discountedPrice ? 
+              `<span class="original-price">${product.price} kr</span> 
+               ${product.discountedPrice} kr` : `${product.price} kr`}</p>
+      `;
+      
+      // Append the link to the product card
+      productCard.appendChild(productLink);
+
+      // Append each product card to the product container
+      productContainer.appendChild(productCard);
+  });
 }
 
 // Function to filter products based on selected criteria
