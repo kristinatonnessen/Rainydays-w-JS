@@ -32,8 +32,8 @@ function displayProducts(products) {
           <img src="${product.image}" alt="${product.title}">
           <h3 class="product-name">${product.title}</h3>
           <p class="price">${product.discountedPrice ? 
-              `<span class="original-price">${product.price} kr</span> 
-               ${product.discountedPrice} kr` : `${product.price} kr`}</p>
+              `<span class="original-price">${product.price} €</span> 
+               ${product.discountedPrice} €` : `${product.price} €`}</p>
       `;
       
       productCard.appendChild(productLink);
@@ -43,16 +43,14 @@ function displayProducts(products) {
 }
 
 function filterProducts() {
-    const category = document.querySelector('#category-filter').value;
     const gender = document.querySelector('#gender-filter').value;
-    const genre = document.querySelector('#genre-filter').value;
+
 
     const filteredProducts = products.filter(product => {
-        const categoryMatch = category ? product.tags.includes(category) : true;
         const genderMatch = gender ? product.gender === gender : true;
-        const genreMatch = genre ? product.tags.includes(genre) : true;
 
-        return categoryMatch && genderMatch && genreMatch;
+
+        return genderMatch ;
     });
 
     displayProducts(filteredProducts);
