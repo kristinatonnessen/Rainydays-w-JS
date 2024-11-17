@@ -20,16 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Populate images
             document.getElementById('main-image').src = product.image;
-            document.getElementById('thumbnail-1').src = product.image;
-            document.getElementById('thumbnail-2').src = product.image; // Can update with different images
-            document.getElementById('thumbnail-3').src = product.image; // Same here
+
 
             // Handle "Add to Cart" button
             const addToCartButton = document.getElementById('add-to-cart-btn');
             addToCartButton.addEventListener('click', function () {
-                const selectedSize = document.querySelector('input[name="size"]:checked')?.value;
-                const quantity = document.getElementById('quantity').value;
-
+                
                 // Add product to cart (use localStorage)
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cart.push({
@@ -37,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     name: product.title,
                     price: product.discountedPrice || product.price,
                     image: product.image,
-                    size: selectedSize,
-                    quantity: quantity
                 });
                 localStorage.setItem('cart', JSON.stringify(cart));
 

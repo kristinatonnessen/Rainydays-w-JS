@@ -294,13 +294,10 @@ footer p {
 /* Product Page Styling */
 .product-page {
     justify-content: space-between;
-    margin: 40px;
+    margin: 20px;
 }
 .product-details {
-    display: flex;
-    flex-wrap: wrap;
     padding: 10px;
-    background-color: #ffffff;    
     border-radius: 10px;
 }
 .main-image{
@@ -321,14 +318,6 @@ footer p {
 .product-info h1, .product-info h2 {
     font-size: 2em;
     margin-bottom: 15px;
-}
-
-.size-selection {
-    margin-top: 20px;
-}
-
-.size-options input {
-    margin: 5px;
 }
 
 /* Checkout Page Styles */
