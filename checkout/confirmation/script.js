@@ -13,15 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
         productElement.classList.add('checkout-product');
 
         productElement.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" class="checkout-product">
-            <div class="product-details">
-                <h3>${item.title}</h3>
-                <p class="price">${item.discountedPrice ? 
-                    `<span class="original-price">${item.price} €</span> 
-                     ${item.discountedPrice} €` : `${item.price} €`}</p>
-            </div>
-        `;
-
+                <img src="${item.image}" alt="${item.name}">
+                <div class="product-details">
+                    <h3 class="product-name">${item.name}</h3> <!-- Use item.name -->
+                    <p class="price">
+                        ${item.discountedPrice ? 
+                            `<span class="original-price">${item.price} €</span> ${item.discountedPrice} €` : 
+                            `${item.price} €`}
+                    </p>
+                </div>
+            `;
         checkoutContainer.appendChild(productElement);
 
         total += item.discountedPrice || item.price;
