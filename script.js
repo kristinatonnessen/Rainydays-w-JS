@@ -19,7 +19,7 @@ async function fetchProducts() {
 function displayProducts(products) {
   const productContainer = document.querySelector('#product-list');
   
-  productContainer.innerHTML = '';
+  productContainer.innerHTML = ''; 
 
   products.forEach(product => {
       const productCard = document.createElement('div');
@@ -28,16 +28,17 @@ function displayProducts(products) {
       const productLink = document.createElement('a');
       productLink.href = `product/index.html?id=${product.id}`; 
 
+      const isOnSale = product.onSale;
+      const productPrice = isOnSale ? product.discountedPrice : product.price; // Use discountedPrice if onSale is true
+      const originalPriceHTML = isOnSale ? `<span class="original-price">${product.price} €</span>` : '';
+
       productLink.innerHTML = `
           <img src="${product.image}" alt="${product.title}">
           <h3 class="product-name">${product.title}</h3>
-          <p class="price">${product.discountedPrice ? 
-              `<span class="original-price">${product.price} €</span> 
-               ${product.discountedPrice} €` : `${product.price} €`}</p>
+          <p class="price">${originalPriceHTML} ${productPrice} €</p>
       `;
       
       productCard.appendChild(productLink);
-
       productContainer.appendChild(productCard);
   });
 }
@@ -45,19 +46,15 @@ function displayProducts(products) {
 function filterProducts() {
     const gender = document.querySelector('#gender-filter').value;
 
-
     const filteredProducts = products.filter(product => {
         const genderMatch = gender ? product.gender === gender : true;
-
-
-        return genderMatch ;
+        return genderMatch;
     });
 
     displayProducts(filteredProducts);
 }
 
 document.querySelector('#gender-filter').addEventListener('change', filterProducts);
-
 
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('add-to-cart-btn')) {

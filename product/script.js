@@ -12,10 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const product = await response.json();
 
             document.getElementById('product-title').textContent = product.title;
-            document.getElementById('product-price').textContent = `${product.discountedPrice ? product.discountedPrice : product.price} €`;
             document.getElementById('product-description').textContent = product.description;
 
             document.getElementById('main-image').src = product.image;
+
+            const isOnSale = product.onSale;
+            const productPrice = isOnSale ? product.discountedPrice : product.price;
+            const originalPriceHTML = isOnSale ? `<span class="original-price">${product.price} €</span>` : '';
+
+            document.getElementById('product-price').innerHTML = `${originalPriceHTML} ${productPrice} €`;
 
             const addToCartButton = document.getElementById('add-to-cart-btn');
             addToCartButton.addEventListener('click', function () {
