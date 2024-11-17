@@ -128,8 +128,7 @@ nav a {
 
 .filter-section {
     display: flex;
-    justify-content: space-between;
-    margin-left: 200px; margin-right: 200px;
+    margin-left: 200px;
     text-align: center;
 }
 .filter-section select {

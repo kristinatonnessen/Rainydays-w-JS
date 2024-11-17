@@ -58,9 +58,8 @@ function filterProducts() {
     displayProducts(filteredProducts);
 }
 
-document.querySelector('#category-filter').addEventListener('change', filterProducts);
 document.querySelector('#gender-filter').addEventListener('change', filterProducts);
-document.querySelector('#genre-filter').addEventListener('change', filterProducts);
+
 
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('add-to-cart-btn')) {
