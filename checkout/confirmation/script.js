@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         productElement.innerHTML = `
             <img src="${item.image}" alt="${item.name}" class="checkout-product">
             <div class="product-details">
-                <h3>${item.name}</h3>
+                <h3>${item.title}</h3>
                 <p class="price">${item.discountedPrice ? 
                     `<span class="original-price">${item.price} €</span> 
                      ${item.discountedPrice} €` : `${item.price} €`}</p>
